@@ -1,4 +1,5 @@
 <?php
+ob_start();
 //iniciamos sesion
 session_start();
 //incluimos el archivo de la clase usuario

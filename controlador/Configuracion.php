@@ -1,4 +1,5 @@
 <?php
+ob_start();
 // editarproducto.php
 include "../config/conexion.php";
 if ($_SERVER["REQUEST_METHOD"] == 'POST') {
@@ -16,3 +17,5 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
             echo json_encode(['error' => 'No se pudo actualizar la url del QR']);
         }
     } 
+
+ob_end_flush();

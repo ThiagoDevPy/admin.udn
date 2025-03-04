@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 //incluimos el archivo de la clase usuario
 require_once "../modelos/Alumno.php";
 
@@ -117,3 +117,4 @@ switch ($_GET["op"]) {
 
         break;
 }
+ob_end_flush();

@@ -1,4 +1,5 @@
 <?php
+ob_start();
 //iniciamos sesion
 session_start();
 //incluimos el archivo de la clase usuario
@@ -116,3 +117,5 @@ switch ($_GET["op"]) {
         header("location: ../index.php");
         break;
 }
+
+ob_end_flush();

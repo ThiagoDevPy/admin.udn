@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require_once "../modelos/Asistencia.php";
 
 //creamos una instancia del objeto 
@@ -134,3 +135,4 @@ switch ($_GET["op"]) {
 
         break;
 }
+ob_end_flush();
