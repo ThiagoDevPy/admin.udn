@@ -1,4 +1,4 @@
-   <?php
+<?php
 ob_start();
 session_start(); // Iniciar la sesión
 
@@ -33,7 +33,7 @@ require "../config/conexion.php";
                             
                             <div class="form-group col-lg-7 col-md-6 col-xs-12">
                                 <label>Enlace nuevo para el QR(*): </label><br> 
-                            <label style="">(La url que rellenes debe contener el protocolo ejemplo: "https://asistenciauninorte.com")</label>
+                            <label>(La url que rellenes debe contener el protocolo ejemplo: "https://asistenciauninorte.com")</label>
                                 <input class="form-control" type="text" name="link" id="link" placeholder="Enlace del QR">
                             </div>
 
