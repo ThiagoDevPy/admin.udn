@@ -154,4 +154,6 @@ switch ($_GET["op"]) {
         //redireccionamo al login
         header("location: ../index.php");
         break;
+
 }
+ob_end_flush();

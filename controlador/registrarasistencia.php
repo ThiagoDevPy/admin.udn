@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 require "../config/conexion.php";
 date_default_timezone_set(ZONA_HORARIA);
 session_start();
@@ -46,3 +46,6 @@ echo json_encode($response);
 $stmt->close();
 
 $conexion->close();
+
+
+ob_end_flush();
