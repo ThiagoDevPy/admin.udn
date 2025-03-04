@@ -9,7 +9,7 @@ define("DB_NAME", "udn");
 define("DB_USERNAME", "root");
 
 // contrasena de la base de datos
-define("DB_PASSWORD", "");
+define("DB_PASSWORD", "c5T2O4Ev7GN8XuDKCQ6UJMRey1q309FS");
 
 //codificacion de caracteres
 define("DB_ENCODE", "utf8");
