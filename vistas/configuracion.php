@@ -33,13 +33,14 @@ require "../config/conexion.php";
                             
                             <div class="form-group col-lg-7 col-md-6 col-xs-12">
                                 <label>Enlace nuevo para el QR(*): </label><br> 
-                            <label>(La url que rellenes debe contener el protocolo ejemplo: "https://asistenciauninorte.com")</label>
+                            <label>(La url que rellenes debe contener el protocolo y apuntar al dominio que usa la Aplicacion de los Usuarios Ejemplo: "https://DominioDeLaAplicacionDeUsuarios.com")</label>
                                 <input class="form-control" type="text" name="link" id="link" placeholder="Enlace del QR">
                             </div>
 
                             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <label>ATENCION: Agregar una URL incorrecta ocasionará errores fatales</label> <br>
                                 <button class="btn btn-primary" onclick="guardaryeditar()">
-                                    <i class="fa fa-save"></i> Guardar
+                                    <i class="fa fa-save"></i> Actualizar
                                 </button>
                                 <button class="btn btn-danger" onclick="cancelarform()" type="button" title="Cancelar">
                                     <i class="fa fa-arrow-circle-left"></i> Cancelar

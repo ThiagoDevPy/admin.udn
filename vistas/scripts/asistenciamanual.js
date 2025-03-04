@@ -23,6 +23,7 @@ function mostrarform(flag) {
         $('#tbllistado').show();
         $('#cedula').prop('disabled', true);
         $('#btnGuardar').prop('disabled', true);
+        
     }
 }
 
@@ -77,6 +78,7 @@ function buscarci() {
 
 function registrar() {
     // Obtener los valores del formulario
+    $('#bntregistrar').prop('disabled', true);
     var evento_id = $("#id_evento").val();
     var user_id = $("#ealumno_id").val();
 
@@ -84,18 +86,20 @@ function registrar() {
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '../controlador/registrarasistencia.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
     // Configurar el callback para manejar la respuesta
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             var response = JSON.parse(xhr.responseText);
             if (response.success) {
                 bootbox.alert(response.message);
+                $('#bntregistrar').prop('disabled', false);
             } else {
                 bootbox.alert(response.message);
+                $('#bntregistrar').prop('disabled', false);
         }
     } else if (xhr.readyState === 4) {
         bootbox.alert("Error en la solicitud: " + xhr.status);
+        $('#bntregistrar').prop('disabled', false);
       }
     };
 
