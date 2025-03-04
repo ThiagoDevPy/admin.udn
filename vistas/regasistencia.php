@@ -73,7 +73,7 @@ require 'header.php';
                     <!-- Botón Actualizar debajo del código QR -->
                     <div class="text-center mt-3">
                         <button id="btnActualizarQR" style="margin:10px">
-                               <span class="navbar-toggler-iconn" onclick="actualizar()" ><img class="navbar-toggler-iconn" src="../public/img/icono-actualizar.png" alt=""></span>
+                               <span class="navbar-toggler-iconn" onclick="actualizar()" ><img class="navbar-toggler-iconn" src="../publico/img/icono-actualizar.png" alt=""></span>
                         </button>
                     </div>
 

@@ -8,23 +8,23 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.5 -->
-  <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../publico/css/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../public/css/font-awesome.css">
+  <link rel="stylesheet" href="../publico/css/font-awesome.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../public/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="../publico/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="../public/css/_all-skins.min.css">
-  <link rel="apple-touch-icon" href="../public/img/apple-touch-icon.png">
-  <link rel="shortcut icon" href="../public/img/icono.ico">
+  <link rel="stylesheet" href="../publico/css/_all-skins.min.css">
+  <link rel="apple-touch-icon" href="../publico/img/apple-touch-icon.png">
+  <link rel="shortcut icon" href="../publico/img/icono.ico">
 
   <!-- DATATABLES -->
-  <link rel="stylesheet" type="text/css" href="../public/datatables/jquery.dataTables.min.css">
-  <link href="../public/datatables/buttons.dataTables.min.css" rel="stylesheet" />
-  <link href="../public/datatables/responsive.dataTables.min.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="../publico/datatables/jquery.dataTables.min.css">
+  <link href="../publico/datatables/buttons.dataTables.min.css" rel="stylesheet" />
+  <link href="../publico/datatables/responsive.dataTables.min.css" rel="stylesheet" />
 
-  <link rel="stylesheet" type="text/css" href="../public/css/bootstrap-select.min.css">
+  <link rel="stylesheet" type="text/css" href="../publico/css/bootstrap-select.min.css">
   
 
 
@@ -49,7 +49,7 @@
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>U</b></span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"> <img src="../public/img/uninorte-logo.png" width="100 " height="30" alt="" /><b></b></span>
+        <span class="logo-lg"> <img src="../publico/img/uninorte-logo.png" width="100 " height="30" alt="" /><b></b></span>
       </a>
       <!-- Header Navbar: style can be found in header.less -->
       <nav class="navbar navbar-static-top">
