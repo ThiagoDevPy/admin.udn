@@ -40,18 +40,83 @@ switch ($_GET["op"]) {
             $clavehash = password_hash($password, PASSWORD_DEFAULT);
         }
 
-        //verificamos si se esta insertando un nuevo usuasrio o editando una existente
-        if (empty($idusuario)) {
-            //si es un nuevo usuariu, llamamos al metodo insertar de la clase usuario
-            $rspta = $usuario->insertar($nombre, $apellidos, $login, $email, $clavehash, $imagen);
-            //Devolvemos un mensaje segun el resultado de la operacion
-            echo $rspta ? "Datos registrados correctamente" : " No se pudo registrar todos los datos del usuario";
-        } else {
-            //si es un usuario existente, llamamos al metodo editar de la clase Usuario
-            $rspta = $usuario->editar($idusuario, $nombre, $apellidos, $login, $email, $clavehash, $imagen);
-            //devolvemos un mensaje segun el resultado de la operacion
-            echo $rspta ? "Datos actualizados correctamente" : "No se pudo actualizar los datos";
+// Verificamos si se está insertando un nuevo usuario o editando uno existente
+if (empty($idusuario)) {
+    // Verificar si el login ya existe en la base de datos
+    $stmt = $conexion->prepare("SELECT COUNT(*) FROM usuarios WHERE login = ?");
+    $stmt->bind_param("s", $login);
+    $stmt->execute();
+    $stmt->bind_result($login_existente);
+    $stmt->fetch(); // Asegúrate de consumir los resultados
+    $stmt->close(); // Cierra el statement
+
+    // Verificar si el email ya existe en la base de datos
+    $stmt = $conexion->prepare("SELECT COUNT(*) FROM usuarios WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $stmt->bind_result($email_existente);
+    $stmt->fetch(); // Asegúrate de consumir los resultados
+    $stmt->close(); // Cierra el statement
+
+    // Comprobar si el login o el email ya existen
+    if ($login_existente > 0) {
+        echo "El usuario ya está registrado. Por favor, elige otro usuario.";
+    } elseif ($email_existente > 0) {
+        echo "El email ya está registrado. Por favor, elige otro email.";
+    } else {
+        // Si no existe ni el login ni el email, insertamos el nuevo usuario
+        $rspta = $usuario->insertar($nombre, $apellidos, $login, $email, $clavehash, $imagen);
+        // Devolvemos un mensaje según el resultado de la operación
+        echo $rspta ? "Datos registrados correctamente" : "No se pudo registrar todos los datos del usuario";
+    }
+} else {
+    // Si es un usuario existente, verificamos si el login o el email han cambiado
+    $login_existente = 0;
+    $email_existente = 0;
+    $stmt = $conexion->prepare("SELECT login, email FROM usuarios WHERE id = ?");
+    $stmt->bind_param("i", $idusuario);
+    $stmt->execute();
+    $stmt->bind_result($login_actual, $email_actual);
+    $stmt->fetch(); // Asegúrate de consumir los resultados
+    $stmt->close(); // Cierra el statement
+
+    // Verificar si el login o el email han cambiado y si son únicos
+    if ($login !== $login_actual) {
+        // Verificar si el nuevo login ya existe
+        $stmt = $conexion->prepare("SELECT COUNT(*) FROM usuarios WHERE login = ?");
+        $stmt->bind_param("s", $login);
+        $stmt->execute();
+        $stmt->bind_result($login_existente);
+        $stmt->fetch(); // Asegúrate de consumir los resultados
+        $stmt->close(); // Cierra el statement
+
+        if ($login_existente > 0) {
+            echo "El usuario ya está registrado. Por favor, elige otro usuario.";
         }
+    }
+
+    if ($email !== $email_actual) {
+        // Verificar si el nuevo email ya existe
+        $stmt = $conexion->prepare("SELECT COUNT(*) FROM usuarios WHERE email = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $stmt->bind_result($email_existente);
+        $stmt->fetch(); // Asegúrate de consumir los resultados
+        $stmt->close(); // Cierra el statement
+
+        if ($email_existente > 0) {
+            echo "El email ya está registrado. Por favor, elige otro email.";
+        }
+    }
+
+    // Si no hay duplicados, se actualiza el usuario
+    if (($login_existente == 0) && ($email_existente == 0)) {
+        $rspta = $usuario->editar($idusuario, $nombre, $apellidos, $login, $email, $clavehash, $imagen);
+        echo $rspta ? "Datos actualizados correctamente" : "No se pudo actualizar los datos";
+    }
+}
+
+
 
         break;
 
