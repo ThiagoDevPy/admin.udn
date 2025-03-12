@@ -9,7 +9,7 @@ define("DB_NAME", "udn");
 define("DB_USERNAME", "root");
 
 // contrasena de la base de datos
-define("DB_PASSWORD", "2vYB3Gr7b4chgxdil685Iyz90FW1OQea");
+define("DB_PASSWORD", "fOxvR4c9TM80NIqbHm2p3QFDiV15aj67");
 
 //codificacion de caracteres
 define("DB_ENCODE", "utf8");
@@ -20,7 +20,7 @@ define("PRO_NOMBRE", "UDN");
 //Zona horaria
 define("ZONA_HORARIA", "America/Asuncion");
 
-define("PORT", "32393");
+define("PORT", "32473");
 
 ?>
 
