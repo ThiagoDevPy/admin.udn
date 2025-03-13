@@ -20,7 +20,7 @@ define("PRO_NOMBRE", "UDN");
 //Zona horaria
 define("ZONA_HORARIA", "America/Asuncion");
 
-define("PORT", "31134");
+define("PORT", "3306");
 
 ?>
 
