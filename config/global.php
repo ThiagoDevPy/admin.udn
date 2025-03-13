@@ -1,15 +1,15 @@
 <?php
 //IP del servidor de la base de datos
-define("DB_HOST", "ovh1.clusters.zeabur.com");
+define("DB_HOST", "udn.czkek0iasari.sa-east-1.rds.amazonaws.com");
 
 //nombre de la base de datos
 define("DB_NAME", "udn");
 
 //usuario de la base de datos
-define("DB_USERNAME", "root");
+define("DB_USERNAME", "admin");
 
 // contrasena de la base de datos
-define("DB_PASSWORD", "4DjB2QiY6pUtyK9x0MJ1IeA8GcT5O7n3");
+define("DB_PASSWORD", "Thiago2002");
 
 //codificacion de caracteres
 define("DB_ENCODE", "utf8");
