@@ -131,17 +131,23 @@ require 'header.php';
             return;
         }
 
-        $.get('updateqr.php', { id: currentQrId }, function(data) {
-            const response = JSON.parse(data);
-            if (response.new_qr) {
-                const qrImage = document.getElementById('qrCode');
-                qrImage.src = response.new_qr + '?' + new Date().getTime(); // Añadir timestamp para evitar caché
-            } else {
-                console.error("No se encontró un nuevo QR.");
-            }
-        }).fail(function() {
-            console.error('Error al actualizar el QR.');
-        });
+       $.get('updateqr.php', { id: currentQrId }, function(data) {
+    console.log("Respuesta del servidor:", data); // Verificar respuesta
+    try {
+        const response = JSON.parse(data);
+        if (response.new_qr) {
+            const qrImage = document.getElementById('qrCode');
+            qrImage.src = response.new_qr + '?' + new Date().getTime(); // Añadir timestamp para evitar caché
+        } else {
+            console.error("No se encontró un nuevo QR.");
+        }
+    } catch (error) {
+        console.error("Error al parsear la respuesta JSON:", error);
+    }
+}).fail(function(xhr, status, error) {
+    console.error('Error al actualizar el QR:', error);
+    console.log('Detalles del error:', xhr.responseText); // Mostrar detalles del error
+});
     }
 
     // Iniciar el temporizador al cargar la página

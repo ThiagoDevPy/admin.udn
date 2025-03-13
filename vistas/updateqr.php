@@ -1,5 +1,7 @@
 <?php
 session_start();
+error_reporting(E_ALL); // Activa la visualización de todos los errores
+ini_set('display_errors', 1); // Muestra los errores directamente en el navegador
 require '../config/conexion.php';
 require 'phpqrcode/qrlib.php';
 include_once '../config/qrconfig.php';
