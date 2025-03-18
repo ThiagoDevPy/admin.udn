@@ -1,12 +1,12 @@
 <?php
 //IP del servidor de la base de datos
-define("DB_HOST", "udn.czkek0iasari.sa-east-1.rds.amazonaws.com");
+define("DB_HOST", "localhost");
 
 //nombre de la base de datos
 define("DB_NAME", "udn");
 
 //usuario de la base de datos
-define("DB_USERNAME", "admin");
+define("DB_USERNAME", "root");
 
 // contrasena de la base de datos
 define("DB_PASSWORD", "Thiago2002");

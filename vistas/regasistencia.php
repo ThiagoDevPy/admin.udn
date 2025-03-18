@@ -1,6 +1,15 @@
 <?php
 ob_start();
 session_start(); // Iniciar la sesión
+// Mostrar todos los errores
+ini_set('display_errors', 1);
+
+// Mostrar errores de nivel E_ALL (todos los errores)
+error_reporting(E_ALL);
+
+// Si deseas también registrar los errores en un archivo de log:
+ini_set('log_errors', 1);
+ini_set('error_log', '/var/log/php_errors.log');
 
 // Verificar si el usuario está autenticado
 if (!isset($_SESSION['user_id'])) {
